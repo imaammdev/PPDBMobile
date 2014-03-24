@@ -1,72 +1,41 @@
 package id.ac.ub.ptiik.labmobile.ppdbmobile;
 
-import android.app.ActionBar;
-import android.app.ActionBar.Tab;
-import android.app.ActionBar.TabListener;
-import android.app.Activity;
+import id.ac.ub.ptiik.labmobile.ppdbmobile.fragments.InfoFragment;
+import id.ac.ub.ptiik.labmobile.ppdbmobile.fragments.LocationFragment;
+import id.ac.ub.ptiik.labmobile.ppdbmobile.fragments.MessagingFragment;
+import id.ac.ub.ptiik.labmobile.ppdbmobile.fragments.SearchFragment;
+import id.ac.ub.ptiik.labmobile.ppdbmobile.fragments.ShareFragment;
 import android.os.Bundle;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
-import android.view.LayoutInflater;
-import android.view.Menu;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTabHost;
 
-public class MainActivity extends Activity implements TabListener  {
+public class MainActivity extends FragmentActivity  {
 	
-	ActionBar actionBar;
+	private FragmentTabHost mTabHost;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.activity_main);
-		this.actionBar = this.getActionBar();
-		this.actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		
-		Tab tab1 = this.actionBar.newTab().setText("Ab").setTag(1);
-		Tab tab2 = this.actionBar.newTab().setText("Bc").setTag(2);
-		Tab tab3 = this.actionBar.newTab().setText("Cd").setTag(3);
+		mTabHost = (FragmentTabHost) this.findViewById(android.R.id.tabhost);
+		mTabHost.setup(this, getSupportFragmentManager(), R.id.fragment_container);
 		
-		tab1.setTabListener(this);
-		tab2.setTabListener(this);
-		tab3.setTabListener(this);
-		LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
-		tab1.setCustomView(inflater.inflate(R.layout.tab_info, null));
-		
-		this.actionBar.addTab(tab1);
-		this.actionBar.addTab(tab2);
-		this.actionBar.addTab(tab3);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-
-	@Override
-	public void onTabReselected(Tab tab, FragmentTransaction ft) {
-		
-	}
-
-	@Override
-	public void onTabSelected(Tab tab, FragmentTransaction ft) {
-		Fragment fragment;
-		int tabNo = Integer.valueOf(tab.getTag().toString());
-		switch(tabNo){
-			case 2:
-			fragment = new LocationFragment();
-			break;
-			default:
-				fragment = new InfoFragment();
-				break;
-		}
-		ft.replace(R.id.fragment_container, fragment);
-	}
-
-	@Override
-	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-		// TODO Auto-generated method stub
-		
+        mTabHost.addTab(mTabHost.newTabSpec("Search").setIndicator("Search",
+                getResources().getDrawable(R.drawable.ic_launcher)),
+                SearchFragment.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("Info").setIndicator("Info",
+                getResources().getDrawable(R.drawable.ic_magnify)),
+                   InfoFragment.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("Messaging").setIndicator("Messaging",
+                getResources().getDrawable(R.drawable.ic_magnify)),
+                   MessagingFragment.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("Location").setIndicator("Location",
+                getResources().getDrawable(R.drawable.ic_magnify)),
+                   LocationFragment.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("Share").setIndicator("Share",
+                getResources().getDrawable(R.drawable.ic_magnify)),
+                   ShareFragment.class, null);
 	}
 
 }
