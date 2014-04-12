@@ -3,43 +3,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
-
-    <android.support.v4.app.FragmentTabHost
-        android:id="@android:id/tabhost"
+    
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        >
+        android:orientation="vertical"
+        tools:ignore="UselessParent" >
+    
+   	<include
+   	    android:layout_width="match_parent"
+   	    layout="@layout/view_titlebar" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-
-            <TabWidget
-                android:id="@android:id/tabs"
-                android:layout_alignParentBottom="true"
-                android:layout_width="match_parent"
-                android:layout_height="76dp" >
-            </TabWidget>
-
-            <FrameLayout
-                android:id="@android:id/tabcontent"
-                android:layout_alignParentTop="true"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-            </FrameLayout>
-            
-            <FrameLayout
-                    android:id="@+id/fragment_container"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
-            </FrameLayout>
-                
-        </RelativeLayout>
-    </android.support.v4.app.FragmentTabHost>
-
+    <FrameLayout
+        android:id="@+id/mainContentContainer"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        />
+    
+    <LinearLayout
+        android:id="@+id/mainMenuContainer"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:minHeight="20dp"
+        android:background="#333333"
+        />
+	</LinearLayout>
+	
 </RelativeLayout>

@@ -1,29 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginBottom="15dp"
-    android:layout_marginTop="15dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:ignore="UseCompoundDrawables" >
 
-    <ImageView
-        android:id="@+id/tabIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:contentDescription="Tab"
-        android:src="@drawable/ic_magnify"
-        android:layout_margin="5dp"
-        tools:ignore="HardcodedText" />
+    <LinearLayout
+        android:id="@+id/tabWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:orientation="vertical"
+        android:background="@drawable/button_bg_selector"
+        tools:ignore="UselessParent" >
 
-    <TextView
-        android:id="@+id/tabLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Info"
-        tools:ignore="HardcodedText" />
+        <ImageView
+            android:id="@+id/tabIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:contentDescription="Tab"
+            android:src="@drawable/ic_magnify"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/tabLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Info"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="#333333"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
 
 </LinearLayout>
