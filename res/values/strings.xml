@@ -3,6 +3,7 @@
 
     <string name="app_name">PPDB Mobile</string>
     <string name="action_settings">Settings</string>
+    <string name="action_back">Back</string>
     <string name="hello_world">Hello world!</string>
 
 </resources>

@@ -12,15 +12,20 @@
         android:layout_height="wrap_content"
         android:text="Masukkan nomor pendaftaran"
         android:gravity="center"
-        android:textSize="12sp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
         tools:ignore="HardcodedText" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:inputType="number"
+        android:id="@+id/inputTextNomorPendaftaran"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="0dp"
+        android:padding="10dp"
+        android:gravity="center"
         android:background="@drawable/bg_input_normal"
         android:ems="10" >
 
@@ -31,20 +36,28 @@
         android:id="@+id/searchButtonCari"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_input_normal"
-        android:padding="5dp" >
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_input_normal" 
+        >
 
         <ImageView
             android:id="@+id/imageView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="5dp"
             android:src="@drawable/ic_magnify" />
 
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-    </LinearLayout>
-
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="@string/buttonCariSekarangText" />
+	</LinearLayout>
+	<include layout="@layout/view_catatan_pencarian" />
 </LinearLayout>

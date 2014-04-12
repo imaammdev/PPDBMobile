@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="buttonCariSekarangText">Cari Sekarang</string>
+    <string name="headingCatatanText">Catatan</string>
+    <string name="catatanDescriptionText">
+        Tuliskan dalam format angka nomor pendaftaran Anda. 
+        Proses pencarian akan dilakukan secara REAL TIME dari sistem PPDB Online.
+        \nHasil seleksi atau posisi sementara merupakan data dinamis, 
+        sebelum jadwal seleksi berakhir maka data masih dapat berubah secara sewaktu-waktu. 
+    </string>
+</resources>
