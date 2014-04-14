@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class InfoFragment extends Fragment {
 
-	private double longitude, latitude;
+	//private double longitude, latitude;
 	private TextView fragmentInfoText;
 	
 	@Override
@@ -24,6 +24,15 @@ public class InfoFragment extends Fragment {
 	
 	@Override
 	public void onStart() {
+		
+
+		LokasiDialogFragment lokasiDialogFragment = new LokasiDialogFragment();
+		lokasiDialogFragment.show(getFragmentManager(), "getlokasifromuser");
+
+		
+		
+		
+		/*
 		GPSTracker gpsTrackerService = new GPSTracker(getActivity());
 		if ( gpsTrackerService.canGetLocation() ) {
 			this.longitude = gpsTrackerService.getLongitude();
@@ -34,7 +43,9 @@ public class InfoFragment extends Fragment {
 		this.fragmentInfoText.setText("User's location:\nLongitude: " 
 				+ this.longitude + "\nLatitude: " + this.latitude);
 		gpsTrackerService.stopUsingGPS();
+		*/
 		super.onStart();
+		
 	}
 
 }
