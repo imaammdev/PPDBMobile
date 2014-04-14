@@ -5,11 +5,13 @@ import id.ac.ub.ptiik.labmobile.ppdbmobile.interfaces.HelloInterface;
 import id.ac.ub.ptiik.labmobile.ppdbmobile.task.HelloTask;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,20 +19,26 @@ public class LokasiDialogFragment extends DialogFragment implements OnClickListe
 	
 	private View v;
 	private TextView infoLokasiText;
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 		this.v = inflater.inflate(R.layout.fragment_lokasi, null);
 		this.infoLokasiText = (TextView) this.v.findViewById(R.id.fragmentInputLokasiText);
-		
-		
 		this.infoLokasiText.setText("Halooo...");
-		
-		
 		this.infoLokasiText.setOnClickListener(this);
-		
 		return v;
+	}
+	
+	@Override
+	public void onStart() {
+		super.onStart();
+		
+		LayoutParams lp = getDialog().getWindow().getAttributes();
+		DisplayMetrics dm = getResources().getDisplayMetrics();
+		lp.width = (int) (dm.widthPixels * 0.9);
+		getDialog().getWindow().setAttributes(lp);
 	}
 	
 	@Override
